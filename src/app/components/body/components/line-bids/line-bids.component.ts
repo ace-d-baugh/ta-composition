@@ -8,9 +8,10 @@ import { CommonModule } from '@angular/common';
 import { LineBidRank } from '../../../../interfaces/line-bid-rank';
 import { Answer } from '../../../../interfaces/answers';
 import { CdkDragDrop, DragRef, moveItemInArray, transferArrayItem, DragDropModule } from '@angular/cdk/drag-drop';
-import _, { filter } from 'lodash';
+import _ from 'lodash';
 import { data } from './data/example-data';
 import { FormsModule } from '@angular/forms';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-line-bids',
@@ -28,6 +29,7 @@ export class LineBidsComponent implements OnInit {
   public periodsId: number = 0;
   public filteredLines: LineBidRank[] = [];
   public previouslySavedBidLines: LineBidRank[] = [];
+  public faCircleInfo = faCircleInfo;
 
 
   constructor(              

@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "bootstrap": "^5.3.3",
     "cdk": "^2.165.0",
     "lodash": "^4.17.21",
