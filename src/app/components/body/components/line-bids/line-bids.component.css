@@ -1,0 +1,201 @@
+.bid-lines-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: relative;
+}
+
+.saved-bid-lines-container,
+.bid-pool-lines-container {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.saved-bid-lines-header, 
+.bid-pool-lines-header {
+    background-color: #cee6f2;
+    padding: 5px;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #83b0cf;
+}
+
+.bid-pool-search {
+    position: relative;
+}
+
+.bid-pool-search input {
+    border: 1px solid #ced4da;
+}
+
+.bid-pool-search input:focus {
+    outline: none;
+}
+
+.searchClearButton {
+    position: absolute;
+    color: rgba(8, 60, 93, 1);
+    height: 100%;
+    align-items: center;
+    right: 0px;
+    top: 0px;
+    background-color: transparent;
+    border: 0;
+    border-radius: .25rem;
+    padding: 2px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.searchClearButton:hover {
+    background-color: #0079BC;
+    color: #FFFFFF;
+}
+
+.bid-pool-lines {
+    filter: grayscale(.5) hue-rotate(15deg);
+}
+
+.bid-lines {
+    min-height: 100px; /* ensure there is always a spot for dragging and dropping lines */
+    max-height: 500px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    background-color: #FFF;
+    overflow-y: auto;
+    user-select: none;
+}
+
+.bid-line {
+    padding: 10px;
+    transition: background-color .5s ease-out, color .5s ease-out;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.bid-line:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1%; /* adjust this value to change the starting point of the line */
+    width: 98%; /* adjust this value to change the width of the line */
+    height: 1px;
+    background-color: #ced4da;
+    z-index: 99;
+}
+
+/* alternating line colors */
+.bid-line:nth-child(odd) {
+    background-color: #B7E4F7;
+}
+
+.bid-line:nth-child(even) {
+    background-color: #F5FBFC;
+}
+
+.bid-line:hover {
+    background-color: #0079BC;
+    color: #FFFFFF;
+}
+
+.bid-line.selected {
+    position: relative;
+    background-color: #083C5D;
+    color: #FFFFFF;
+    transition: background-color .5s ease-out, color .5s ease-out;
+}
+
+.bid-line.selected::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1%; /* adjust this value to change the starting point of the line */
+    width: 98%; /* adjust this value to change the width of the line */
+    height: 1px;
+    background-color: #FFFFFF;
+}
+
+.cdk-drag-preview {
+    background-color: var(--primary-focus-theme) !important;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    opacity: .75;
+    border: 0;
+}
+
+.helper-text-container {
+    width: 0;
+    height: 0;
+    transition: all .75s ease-in-out;
+    opacity: 0;
+    z-index: 999;
+    overflow: hidden;
+    font-size: 0rem;
+    top: 5%;
+    right: 2%;
+    position: absolute;
+    border-radius: 10px;
+    border: 3px solid #0079bc;
+    box-shadow: 5px 5px 15px rgba(8, 60, 93, 0);
+    display: flex;
+    justify-content: center;
+}
+
+.helper-text-container.show {
+    opacity: 1;
+    top: 5%;
+    right: 2%;
+    width: 95%;
+    height: 80%;
+    background-color: rgba(8, 60, 93, 1);
+    color: #FFFFFF;
+    font-size: 1rem;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 999;
+}
+
+.helper-text-container.show::after {
+    content: "close";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.25rem;
+}
+
+.helper-text-container.show:hover::after {
+    cursor: pointer;
+}
+
+.font-size-t4 {
+    font-size: 1.25rem;
+}
+
+.font-size-t6 {
+    font-size: 1.5rem;
+}
+
+.font-size-t8 {
+    font-size: 1.75rem; 
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    background-color: #0079BC;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 10px;
+}
