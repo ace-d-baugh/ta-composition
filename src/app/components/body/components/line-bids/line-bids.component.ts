@@ -10,13 +10,13 @@ import { CdkDragDrop, DragRef, moveItemInArray, transferArrayItem, DragDropModul
 import _ from 'lodash';
 import { data } from './data/example-data';
 import { FormsModule } from '@angular/forms';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
+import { NgIconsModule } from '@ng-icons/core';
 
 @Component({
   selector: 'app-line-bids',
   standalone: true,
-  imports: [CommonModule,DragDropModule, FormsModule],
+  imports: [CommonModule,DragDropModule, FormsModule, NgIconsModule],
   templateUrl: './line-bids.component.html',
   styleUrl: './line-bids.component.css'
 })
@@ -29,7 +29,6 @@ export class LineBidsComponent implements OnInit {
   public periodsId: number = 0;
   public filteredLines: LineBidRank[] = [];
   public previouslySavedBidLines: LineBidRank[] = [];
-  public faCircleInfo = faCircleInfo;
 
 
   constructor(              

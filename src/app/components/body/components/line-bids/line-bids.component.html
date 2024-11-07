@@ -1,6 +1,23 @@
 <div class="bid-lines-container">
     <div class="bid-lines-header d-flex">
         <div class="d-flex font-size-t8 ms-2">Multiline Select and Sort</div>
+        <div class="help-icon font-size-t4 ms-auto mx-2" (click)="toggleHelp()"><ng-icon name="bootstrapInfoCircle"></ng-icon></div>
+        <div class="helper-text-container" id="helper-text" (click)="toggleHelp()">
+            <div class="helper-text">
+                <p class="font-size-t6 mb-1">How To Use:</p>
+                <ul class="helper-text-list">
+                    <li>Click or tap to highlight/unhighlight an individual line in a box.</li>
+                    <li>Hold SHIFT and click or tap to highlight multiple lines in a box.</li>
+                    <li>Hold CTRL/CMD and click or tap to highlight/unhighlight more individual lines in a box.</li>
+                    <li>Use the "Highlight All" button above to highlight all lines in the top box.</li>
+                    <li>Use the "Remove Highlighted" button above to remove highlighted lines from the top box.</li>
+                    <li>Use "Type Here To Search For Keywords" to search for lines in the bottom box by one or more keywords.</li>
+                    <li>Use the "Highlight All Visible" button below to highlight all visible lines in the bottom box.</li>
+                    <li>Use the "Add Highlighted" button below to remove highlighted lines from the top box.</li>
+                    <li>Drag and drop individual or multiple highlighted lines to and from either box and to rearrange them in the top box.</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="bid-pool-container pb-3" cdkDropListGroup>
         <div class="cast-information-container px-3">
@@ -47,23 +64,6 @@
         <div class="saved-bid-lines-container mx-4 pb-3 mb-4">
             <div class="saved-bid-lines-header d-flex">
                 <div class="d-flex font-size-t8 ms-2">Selected And Sorted Lines</div>
-                <div class="help-icon font-size-t4 ms-auto me-2" (click)="toggleHelp()">I</div>
-                <div class="helper-text-container p-3" id="helper-text" (click)="toggleHelp()">
-                    <div class="helper-text">
-                        <p class="font-size-t5">How To Use:</p>
-                        <ul class="helper-text-list">
-                            <li>Click or tap to highlight/unhighlight an individual line in a box.</li>
-                            <li>Hold SHIFT and click or tap to highlight multiple lines in a box.</li>
-                            <li>Hold CTRL/CMD and click or tap to highlight/unhighlight more individual lines in a box.</li>
-                            <li>Use the "Highlight All" button above to highlight all lines in the top box.</li>
-                            <li>Use the "Remove Highlighted" button above to remove highlighted lines from the top box.</li>
-                            <li>Use "Type Here To Search For Keywords" to search for lines in the bottom box by one or more keywords.</li>
-                            <li>Use the "Highlight All Visible" button below to highlight all visible lines in the bottom box.</li>
-                            <li>Use the "Add Highlighted" button below to remove highlighted lines from the top box.</li>
-                            <li>Drag and drop individual or multiple highlighted lines to and from either box and to rearrange them in the top box.</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div class="bid-lines-interactive saved-buttons px-3">
                 <div class="line-buttons-container col-12 d-flex justify-content-end flex-sm-row flex-column mb-3">
@@ -102,7 +102,7 @@
                 <div class="bid-pool-search-container col-12 col-lg-6 mb-3">
                     <div class="input bid-pool-search">
                         <input class="w-100" [(ngModel)]="searchTerm" type="text" (ngModelChange)="filterResults()" placeholder="Type Here To Search For Keywords" />
-                        <span class="searchClearButton" (click)="clearSearch()">X</span>
+                        <span class="searchClearButton" (click)="clearSearch()"><ng-icon name="bootstrapXCircle"></ng-icon></span>
                     </div>
                 </div>
                 <div class="line-buttons-container d-flex justify-content-end col-12 col-lg-6 flex-column flex-sm-row mb-3">
