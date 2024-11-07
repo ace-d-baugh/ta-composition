@@ -1,8 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-    font-family: var(--font-family-base) !important;
-    color: var(--slate-900);
-    background-color: var(--grey-000);
+:root {
+    --primary-color: #4682B4; /* steel blue */
+    --secondary-color: #6495ED; /* cornflower blue */
+    --background-color: #1A1D23; /* midnight blue/dark navy */
+    --highlight-color: #87CEEB; /* sky blue */
+    --hover-color: #56B3FA; /* soft blue */
+    --button-color: #2F4F7F; /* navy blue */
+    --text-color: #FFFFFF; /* white */
+    --accent-color: #B1B1B1; /* silver */
+    --border-color: #343A40; /* dark gray-blue */
+    --glow-color: rgba(135, 206, 235, 0.5); /* soft blue glow */
+  }
+  
+  /* Global Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
   
   .cdk-drag-preview {

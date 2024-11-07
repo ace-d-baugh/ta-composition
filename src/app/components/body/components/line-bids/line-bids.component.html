@@ -1,7 +1,19 @@
-<div class="bid-lines-container">
-    <div class="bid-pool-container bg-white pb-3" cdkDropListGroup>
+<div class="bid-lines-container p-3">
+    <div class="bid-pool-container pb-3" cdkDropListGroup>
         <div class="cast-information-container px-3">
             <div class="row gy-3">
+                <div class="col-12 col-lg-4">
+                    <div class="font-size-t6">
+                        <b>
+                            Employee Name
+                        </b>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <div class="font-size-t6">
+                        William Thatcher
+                    </div>
+                </div>
                 <div class="col-12 col-lg-4">
                     <div class="font-size-t6">
                         <b>
@@ -10,9 +22,8 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <div class="font-size-t8">
-                        <i> (MM/DD/YYYY)</i>
-                        12/25/2014
+                    <div class="font-size-t4">
+                        12/25/2014<i class="font-size-t2"> (MM/DD/YYYY)</i>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
@@ -23,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <div class="font-size-t6 d-flex">
+                    <div class="font-size-t4 d-flex">
                         13 of 64
                     </div>
                 </div>
@@ -34,7 +45,7 @@
             <div class="saved-bid-lines-header d-flex">
                 <div class="d-flex font-size-t8 ms-2">Selected And Sorted Lines</div>
                 <div class="help-icon font-size-t4 ms-auto me-2" (click)="toggleHelp()">I</div>
-                <div class="helper-text-container p-3 show" id="helper-text" (click)="toggleHelp()">
+                <div class="helper-text-container p-3" id="helper-text" (click)="toggleHelp()">
                     <div class="helper-text">
                         <p class="font-size-t5">How To Use:</p>
                         <ul class="helper-text-list">

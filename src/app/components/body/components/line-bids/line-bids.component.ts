@@ -1,5 +1,4 @@
 // form-line-bid-rankcomponent.ts
-// Form Line Bid Rank Component
 // ======================================
 
 // Import necessary modules and services
@@ -12,6 +11,7 @@ import _ from 'lodash';
 import { data } from './data/example-data';
 import { FormsModule } from '@angular/forms';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-line-bids',
@@ -35,6 +35,7 @@ export class LineBidsComponent implements OnInit {
   constructor(              
     private eRef: ElementRef,
     private cdRef: ChangeDetectorRef,
+    private cookieService: CookieService,
 ) {}
     
 
@@ -55,6 +56,15 @@ export class LineBidsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+
+    // Check if user has visited before
+    let visitedBefore = this.cookieService.get('visitedBefore');
+    if (!visitedBefore) {
+      // Show helper text on first visit
+      this.toggleHelp();
+      // Set cookie to mark as visited
+      this.cookieService.set('visitedBefore', 'true', 365); // expires in 1 year
+    }
 	}
   
   getData(): void {
@@ -365,6 +375,5 @@ export class LineBidsComponent implements OnInit {
       helper.classList.remove('show');
     }
   }
-
 }
 
