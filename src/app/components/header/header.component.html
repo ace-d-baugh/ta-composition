@@ -16,7 +16,7 @@
         <div class="circle" #circle></div>
         <div class="circle-timer">
             <div class="circle-image">
-                    <img id="user-img" class="rounded-circle" [src]="">
+                    <img id="user-img" class="rounded-circle" [src]="'/Jenson.jpg'" />
             </div>
             <div class="countdown w-100">
                 <p class="caption">Time Remaining:<br/><ng-container *ngIf="minutesUntilTimeout > 0" class="timer">{{ minutesUntilTimeout }}</ng-container><ng-container *ngIf="minutesUntilTimeout > 1"> Minutes</ng-container><ng-container *ngIf="minutesUntilTimeout == 1"> Minute</ng-container><ng-container *ngIf="minutesUntilTimeout < 1">{{ secondsUntilTimeout  }} Seconds</ng-container></p>

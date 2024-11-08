@@ -18,7 +18,6 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
   currentTime: string = "";
   countSetPoint: number = 15;
 
-
   @ViewChild('circle') circle: ElementRef | undefined;
   clipPath: string =  "";
 
@@ -73,7 +72,12 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
 	
     if (this.minutesUntilTimeout > 0 && this.secondsUntilTimeout > 0) {
 		  animate();
+    } else {
+      this.clipPath = `polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%)`;
+      this.minutesUntilTimeout = 0;
+      this.secondsUntilTimeout = 0;
     }
+
 	}
 	
 	percent(timer:number, topNum:number, bottomNum:number) {
