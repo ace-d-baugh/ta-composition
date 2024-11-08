@@ -17,6 +17,7 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
   sessionTimer: string = "";
   currentTime: string = "";
   countSetPoint: number = 15;
+  raiseShields: boolean = false;
 
   @ViewChild('circle') circle: ElementRef | undefined;
   clipPath: string =  "";
@@ -65,19 +66,18 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
 		
 			element.style.clipPath = this.clipPath;
 		
-			if (timer < top) {
+			if (this.minutesUntilTimeout > 0 || this.secondsUntilTimeout > 0) {
 				requestAnimationFrame(animate);
-			}
+			} else {
+        this.clipPath = `polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%)`;
+        this.minutesUntilTimeout = 0;
+        this.secondsUntilTimeout = 0;
+        this.raiseShields = true;
+        alert('Done animating!\n -Please refresh the page');
+      }
 		};
 	
-    if (this.minutesUntilTimeout > 0 && this.secondsUntilTimeout > 0) {
-		  animate();
-    } else {
-      this.clipPath = `polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%)`;
-      this.minutesUntilTimeout = 0;
-      this.secondsUntilTimeout = 0;
-    }
-
+		animate();  
 	}
 	
 	percent(timer:number, topNum:number, bottomNum:number) {

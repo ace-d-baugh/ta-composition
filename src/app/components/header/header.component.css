@@ -1,3 +1,19 @@
+.force-field {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: .5;
+    display: none;
+}
+
+.shields-up {
+  display: flex;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;

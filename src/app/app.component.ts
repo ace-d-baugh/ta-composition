@@ -22,11 +22,9 @@ export class AppComponent implements OnInit {
   title = 'TA - Composition';
 
   ngOnInit(): void {
-    console.log("Current Cookie\n", this.cookieService.get('sessionTimer'));
     if(this.cookieService.get('sessionTimer') === null || this.cookieService.get('sessionTimer') === undefined || this.cookieService.get('sessionTimer') === "" || Date.parse(this.cookieService.get('sessionTimer')) < Date.now()) {
       let futureTime = new Date();
       futureTime.setMinutes(futureTime.getMinutes() + 15);
-      console.log("Setting cookie\n", futureTime);
       this.cookieService.set('sessionTimer', futureTime.toISOString(), futureTime);
     }
   }
