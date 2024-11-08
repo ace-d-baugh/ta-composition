@@ -11,3 +11,7 @@ export default defineConfig({
 
 // Please run this
 // npm install vite @vitejs/plugin-angular --save-dev
+// Then this
+// vite build
+// vite preview
+// Then to github pages or even my site
