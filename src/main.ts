@@ -5,11 +5,12 @@ import { NgIconComponent, provideIcons, provideNgIconsConfig } from '@ng-icons/c
 import { bootstrapInfoCircle, bootstrapXCircle } from '@ng-icons/bootstrap-icons';
 import { AppComponent } from './app/app.component';
 import { importProvidersFrom } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
-    importProvidersFrom(NgIconsModule.withIcons({ bootstrapInfoCircle, bootstrapXCircle })),
+    importProvidersFrom(CommonModule, NgIconsModule.withIcons({ bootstrapInfoCircle, bootstrapXCircle })),
     provideNgIconsConfig({
       size: '1.5em',
     }),

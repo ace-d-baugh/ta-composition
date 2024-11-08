@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -16,6 +16,7 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
   // Session timer variable will stor the date from the cookie
   sessionTimer: string = "";
   currentTime: string = "";
+  countSetPoint: number = 15;
 
 
   @ViewChild('circle') circle: ElementRef | undefined;
@@ -28,25 +29,24 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
     this.animateClipPath(countdown);
 	}
 
-  minutes: number = 15;
+  minutes: number = this.countSetPoint;
   seconds: number = 60;
-  minutesUntilTimeout: number = 15;
+  minutesUntilTimeout: number = this.countSetPoint;
   secondsUntilTimeout: number = 60;
 
 	animateClipPath(element: HTMLElement) {
 	
-		const top = 60 * 15;
-		const cutPoint50 = 50 * 15;
-		const cutPoint40 = 40 * 15;
-		const cutPoint30 = 30 * 15;
-		const cutPoint20 = 20 * 15;
-		const cutPoint10 = 10 * 15;
+		const top = 60 * this.countSetPoint;
+		const cutPoint50 = 50 * this.countSetPoint;
+		const cutPoint40 = 40 * this.countSetPoint;
+		const cutPoint30 = 30 * this.countSetPoint;
+		const cutPoint20 = 20 * this.countSetPoint;
+		const cutPoint10 = 10 * this.countSetPoint;
 
 		const animate = () => {
 
       this.minutesUntilTimeout = Math.floor((Date.parse(this.sessionTimer) - Date.now()) / 1000 / 60);
       this.secondsUntilTimeout = Math.floor((Date.parse(this.sessionTimer) - Date.now()) / 1000 % 60);
-		
 
 			const timer = this.minutesUntilTimeout * 60 + this.secondsUntilTimeout;
 			
@@ -71,7 +71,9 @@ export class HeaderComponent implements AfterViewInit, CommonModule {
 			}
 		};
 	
-		animate();
+    if (this.minutesUntilTimeout > 0 && this.secondsUntilTimeout > 0) {
+		  animate();
+    }
 	}
 	
 	percent(timer:number, topNum:number, bottomNum:number) {
