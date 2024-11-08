@@ -44,4 +44,9 @@
     "typescript": "~5.5.2"
   },
   "registry": "https://registry.npmjs.org",
+  "stackblitz": {
+    "dependencies": {
+      "@angular/cli": "^18.1.4"
+    }
+  }
 }
